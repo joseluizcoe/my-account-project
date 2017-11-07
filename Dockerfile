@@ -5,5 +5,7 @@ WORKDIR /app
 
 # Copy needed files to start image
 COPY ./package.json package.json
+COPY ./yarn.lock yarn.lock
+COPY ./pages pages
 
 RUN yarn
