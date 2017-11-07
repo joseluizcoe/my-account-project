@@ -1,0 +1,11 @@
+{
+  "name": "my-account-project",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:joseluizcoe/my-account-project.git",
+  "author": "José Luiz Coe <joseluizcoe@gmail.com>",
+  "license": "MIT",
+  "scripts":{
+    "start": "echo Initial infraestructure is ready!"
+  }
+}

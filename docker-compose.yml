@@ -1,0 +1,6 @@
+version: '2'
+
+services:
+  my-profile:
+    build: .
+    command: yarn start
