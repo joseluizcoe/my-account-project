@@ -3,4 +3,6 @@ version: '2'
 services:
   my-profile:
     build: .
-    command: yarn start
+    ports:
+      - 3000:3000
+    command: yarn dev
