@@ -4,5 +4,8 @@
   "main": "index.js",
   "repository": "git@github.com:joseluizcoe/my-account-project.git",
   "author": "José Luiz Coe <joseluizcoe@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts":{
+    "start": "echo Initial infraestructure is ready!"
+  }
 }
