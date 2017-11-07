@@ -10,7 +10,9 @@
     "build": "next build",
     "start": "yarn build && next start",
     "lint": "eslint ./",
-    "precommit": "yarn lint"
+    "precommit": "yarn lint",
+    "test": "jest",
+    "coverage": "jest --coverage"
   },
   "devDependencies": {
     "eslint": "^4.4.1",
@@ -18,6 +20,7 @@
     "eslint-plugin-import": "^2.7.0"
   },
   "dependencies": {
+    "jest": "^21.2.1",
     "next": "^4.1.4",
     "react": "^16.0.0",
     "react-dom": "^16.0.0"
