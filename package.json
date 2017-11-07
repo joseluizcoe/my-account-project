@@ -8,7 +8,9 @@
   "scripts": {
     "dev": "yarn build && next",
     "build": "next build",
-    "start": "yarn build && next start"
+    "start": "yarn build && next start",
+    "lint": "eslint ./",
+    "precommit": "yarn lint"
   },
   "devDependencies": {
     "eslint": "^4.4.1",
