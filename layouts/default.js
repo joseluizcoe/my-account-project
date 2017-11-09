@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Menu, Icon } from 'semantic-ui-react';
+import { Menu, Icon, Container } from 'semantic-ui-react';
 import { Top, Submenu } from '../components';
 
 class LayoutDefault extends Component {
@@ -9,18 +9,20 @@ class LayoutDefault extends Component {
   }
   render() {
     return (
-      <div style={{ marginTop: '4em' }}>
+      <div style={{ marginTop: '5em' }}>
         <meta
           name='viewport'
           content='initial-scale=1.0, width=device-width'
         />
         <link
           rel="stylesheet"
-          href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.11/semantic.min.css"
+          href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.12/semantic.min.css"
         />
         <Top />
         <Submenu />
-        {this.children}
+        <Container fluid>
+          {this.children}
+        </Container>
       </div>
     )
   }
