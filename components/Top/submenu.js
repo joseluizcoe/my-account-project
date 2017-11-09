@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import { Menu, Icon } from 'semantic-ui-react';
+import Link from 'next/link'
 
 export class Submenu extends Component {
   render() {
@@ -13,21 +14,28 @@ export class Submenu extends Component {
         pointing
         borderless
         >
-        <Menu.Item name='user' as="a" href="/profile">
-          <Icon name='user' /> Profile
+        <Menu.Item name='user'>
+          <Link href="/profile" prefetch>
+            <Icon name='user' />
+          </Link>
         </Menu.Item>
 
-        <Menu.Item name='address card outline' as="a" href="/address-list">
-          <Icon name='address card outline' /> Address List
+        <Menu.Item name='address card outline'>
+          <Link href="/address-list" prefetch>
+            <Icon name='address card outline'/>
+          </Link>
         </Menu.Item>
 
-        <Menu.Item name='shopping basket' as="a" href="/order-history">
-          <Icon name='shopping basket' /> Order history
+        <Menu.Item name='shopping basket'>
+          <Link href="/order-history" prefetch>
+            <Icon name='shopping basket' />
+          </Link>
         </Menu.Item>
 
-        <Menu.Item name='heart' as="a" href="/wishlist">
-          <Icon name='heart' />
-          Wishlist
+        <Menu.Item name='heart'>
+          <Link href="/wishlist" prefetch>
+            <Icon name='heart' />
+          </Link>
         </Menu.Item>
       </Menu>
     );
