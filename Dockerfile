@@ -7,5 +7,8 @@ WORKDIR /app
 COPY ./package.json package.json
 COPY ./yarn.lock yarn.lock
 COPY ./pages pages
+COPY ./layouts layouts
+COPY ./data data
+COPY ./components components
 
 RUN yarn
