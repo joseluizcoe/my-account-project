@@ -2,7 +2,8 @@
 
 This is a simple mobile web page to simulate a user interaction with a fake e-commerce "account".
 
-## Used Technologies
+## Built With
+* [Node 8](https://www.nodejs.org/)
 * NextJs (React SSR)
   - Nextjs it's a simple framework that use React including Server Side Rendering.
 * Docker
@@ -18,27 +19,28 @@ To install docker, [see official documentation](https://docs.docker.com/engine/i
 
 ## Installing
 
-### Clone this project:
+Assuming that you have a Docker installed. Follow the steps bellow:
+
+### 1 - Clone this project:
 ```
 git clone https://github.com/joseluizcoe/my-account-project.git
 ```
 
-### Go to project folder:
+### 2 - Go to project folder:
 ```
 cd my-account-project
 ```
 
-### Starting app:
+### 3 - Starting app:
 
 * **dev** - to development mode.
 ```
 docker-compose -f docker-compose.dev.yml up -d
 ```
 
-Go to your *mobile phone browser* or Chrome Browser in "inspect mode" and access: `http://YOUR_IP:3000`
+### 4 - See what's happening:
+Open your *mobile phone browser* or *Chrome Browser* in "inspect mode" and access:
+
+```http://YOUR_IP:3000```
 
 Enjoy!
-
-## Built With
-
-* [Node 8](https://www.nodejs.org/)
