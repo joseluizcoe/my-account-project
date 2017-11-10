@@ -1,5 +1,5 @@
 export default {
-  loading: true,
+  showLoading: true,
   activeLink: null,
   cartItems: 0,
 };

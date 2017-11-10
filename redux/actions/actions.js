@@ -15,7 +15,7 @@ export function addToCart(totalItems) {
 export function updateLoading(showLoading) {
   return {
     type: UPDATE_LOADING,
-    loading: showLoading,
+    showLoading,
   };
 }
 

@@ -8,7 +8,7 @@ export default function (state = initialStates, action) {
   const { type,
     cartItems,
     activeLink,
-    loading } = action;
+    showLoading } = action;
 
   switch (type) {
     case ADD_TO_CART:
@@ -20,7 +20,7 @@ export default function (state = initialStates, action) {
     case UPDATE_LOADING:
       return {
         ...state,
-        loading,
+        showLoading,
       };
 
     case UPDATE_ACTIVE_LINK:
