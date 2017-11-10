@@ -1,0 +1,14 @@
+version: '2'
+
+services:
+  my-profile:
+    build: .
+    ports:
+      - 3000:3000
+    volumes:
+      - ./layouts:/app/layouts
+      - ./pages:/app/pages
+      - ./data:/app/data
+      - ./components:/app/components
+      - ./redux:/app/redux
+    command: yarn dev

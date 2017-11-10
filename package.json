@@ -1,0 +1,33 @@
+{
+  "name": "my-account-project",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:joseluizcoe/my-account-project.git",
+  "author": "José Luiz Coe <joseluizcoe@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "yarn build && next",
+    "build": "next build",
+    "start": "yarn build && next start",
+    "lint": "eslint ./",
+    "precommit": "yarn lint",
+    "test": "jest",
+    "coverage": "jest --coverage"
+  },
+  "devDependencies": {
+    "eslint": "^4.4.1",
+    "eslint-config-airbnb-base": "^11.3.1",
+    "eslint-plugin-import": "^2.7.0"
+  },
+  "dependencies": {
+    "jest": "^21.2.1",
+    "next": "^4.1.4",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "nprogress": "^0.2.0",
+    "redux": "^3.7.2",
+    "react-redux": "^5.0.6",
+    "next-redux-wrapper": "^1.3.4",
+    "semantic-ui-react": "^0.76.0"
+  }
+}
