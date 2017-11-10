@@ -1,4 +1,6 @@
 import { Component } from 'react';
+import storeConnect from '../redux/container-connect';
+
 import Layout from '../layouts/default';
 import { Card, Icon, Image, Button } from 'semantic-ui-react';
 import data from '../data/profile';
@@ -7,7 +9,7 @@ class Profile extends Component {
   render() {
     return (
       <Layout iconName='user' title='Profile'>
-        <Card fluid>
+        <Card >
           <Image src={data.image} />
           <Card.Content>
             <Card.Header>
@@ -34,4 +36,5 @@ class Profile extends Component {
   }
 }
 
-export default Profile;
+
+export default storeConnect(Profile);

@@ -1,25 +1,28 @@
 import { Component } from 'react';
+import componentConnect from '../../redux/component-connect';
+
 import { Menu, Icon } from 'semantic-ui-react';
-import Link from 'next/link'
-import NProgress from 'nprogress';
-import Router from 'next/router';
+import Link from 'next/link';
 
-Router.onRouteChangeStart = (url) => {
-  console.log(`Loading: ${url}`);
-  NProgress.start();
-};
+class Submenu extends Component {
+  handleShowLoading = () => {
+    const { dispatch, showLoading } = this.props;
+    dispatch({
+      type: 'UPDATE_LOADING',
+      showLoading: true,
+    });
+    return false;
+  }
 
-Router.onRouteChangeComplete = () => {
-  console.log('Loading Done');
-  NProgress.done();
-};
+  handleHideLoading = () => {
+    const { dispatch, showLoading } = this.props;
+    dispatch({
+      type: 'UPDATE_LOADING',
+      showLoading: false,
+    });
+    return false;
+  }
 
-Router.onRouteChangeError = () => {
-  console.log('Error');
-  NProgress.done();
-};
-
-export class Submenu extends Component {
   render() {
     return (
       <Menu
@@ -32,8 +35,6 @@ export class Submenu extends Component {
         >
         <Menu.Item name='user'>
           <Link key='user'
-            onClick={this.startLoading}
-            onStop={this.stopLoading}
             href="/profile"
             prefetch>
             <Icon name='user' size='large'/>
@@ -42,8 +43,6 @@ export class Submenu extends Component {
 
         <Menu.Item key='address' name='address card outline'>
           <Link
-            onClick={this.startLoading}
-            onStop={this.stopLoading}
             href="/address-list"
             prefetch>
             <Icon name='address card outline' size='large'/>
@@ -52,8 +51,6 @@ export class Submenu extends Component {
 
         <Menu.Item key='order-history' name='shopping basket'>
           <Link
-            onClick={this.startLoading}
-            onStop={this.stopLoading}
             href="/order-history"
             prefetch>
             <Icon name='shopping basket' size='large'/>
@@ -62,8 +59,6 @@ export class Submenu extends Component {
 
         <Menu.Item key='wishlist' name='heart'>
           <Link
-            onClick={this.startLoading}
-            onStop={this.stopLoading}
             href="/wishlist"
             prefetch>
             <Icon name='heart' size='large'/>
@@ -73,3 +68,7 @@ export class Submenu extends Component {
     );
   }
 }
+
+const Connected = componentConnect(Submenu);
+
+export { Connected as Submenu};

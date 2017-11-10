@@ -1,0 +1,3 @@
+export const ADD_TO_CART = 'ADD_TO_CART';
+export const UPDATE_LOADING = 'UPDATE_LOADING';
+export const UPDATE_ACTIVE_LINK = 'UPDATE_ACTIVE_LINK';
