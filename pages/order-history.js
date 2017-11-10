@@ -1,6 +1,5 @@
 import { Component } from 'react';
-import withRedux from 'next-redux-wrapper';
-import store from '../redux/store';
+import storeConnect from '../redux/container-connect';
 
 import Layout from '../layouts/default';
 import { Button, Image, Icon, Item, Label } from 'semantic-ui-react';
@@ -61,13 +60,4 @@ class OrderHistory extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  const { showLoading, activeLink, cartItems }  = state;
-  return {
-    showLoading,
-    activeLink,
-    cartItems
-  };
-}
-
-export default withRedux(store, mapStateToProps)(OrderHistory);
+export default storeConnect(OrderHistory);

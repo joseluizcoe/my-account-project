@@ -1,6 +1,5 @@
 import { Component } from 'react';
-import withRedux from 'next-redux-wrapper';
-import store from '../redux/store';
+import storeConnect from '../redux/container-connect';
 
 import Layout from '../layouts/default';
 import { Segment, Icon, Item, Button } from 'semantic-ui-react';
@@ -41,13 +40,4 @@ class Wishlist extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  const { loading, activeLink, cartItems }  = state;
-  return {
-    loading,
-    activeLink,
-    cartItems
-  };
-}
-
-export default withRedux(store, mapStateToProps)(Wishlist);
+export default storeConnect(Wishlist);

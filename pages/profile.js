@@ -1,6 +1,5 @@
 import { Component } from 'react';
-import withRedux from 'next-redux-wrapper';
-import store from '../redux/store';
+import storeConnect from '../redux/container-connect';
 
 import Layout from '../layouts/default';
 import { Card, Icon, Image, Button } from 'semantic-ui-react';
@@ -10,7 +9,7 @@ class Profile extends Component {
   render() {
     return (
       <Layout iconName='user' title='Profile'>
-        <Card fluid>
+        <Card >
           <Image src={data.image} />
           <Card.Content>
             <Card.Header>
@@ -38,13 +37,4 @@ class Profile extends Component {
 }
 
 
-const mapStateToProps = (state) => {
-  const { loading, activeLink, cartItems }  = state;
-  return {
-    showLoading,
-    activeLink,
-    cartItems
-  };
-}
-
-export default withRedux(store, mapStateToProps)(Profile);
+export default storeConnect(Profile);
