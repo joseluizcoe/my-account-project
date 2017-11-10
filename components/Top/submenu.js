@@ -69,13 +69,6 @@ class Submenu extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  const { showLoading } = state;
-  return {
-    showLoading,
-  }
-}
-
 const Connected = componentConnect(Submenu);
 
 export { Connected as Submenu};

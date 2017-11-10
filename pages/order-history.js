@@ -31,8 +31,8 @@ class OrderHistory extends Component {
                     {order.status=='waiting' &&
                       <Icon name="calendar outline" />
                     }
-                    {order.date} - Order Id: {order.id}</Item.Meta>
-                  <Item.Meta>Products ({order.products.length}):
+                    {order.date} - Order Id: {order.id} [{order.status}] </Item.Meta>
+                  <Item.Meta>
                   <List>
                   {order.products.map( (product)=>
                     <List.Item as='a'>
