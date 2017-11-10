@@ -10,5 +10,6 @@ COPY ./pages pages
 COPY ./layouts layouts
 COPY ./data data
 COPY ./components components
+COPY ./redux redux
 
 RUN yarn
