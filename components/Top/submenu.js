@@ -1,25 +1,32 @@
 import { Component } from 'react';
+import { connect } from 'react-redux';
+
 import { Menu, Icon } from 'semantic-ui-react';
-import Link from 'next/link'
-import NProgress from 'nprogress';
-import Router from 'next/router';
+import Link from 'next/link';
 
-Router.onRouteChangeStart = (url) => {
-  console.log(`Loading: ${url}`);
-  NProgress.start();
-};
+class Submenu extends Component {
+  handleShowLoading = () => {
+    console.log('handleShowLoading');
+    const { dispatch, showLoading } = this.props;
 
-Router.onRouteChangeComplete = () => {
-  console.log('Loading Done');
-  NProgress.done();
-};
+    dispatch({
+      type: 'UPDATE_LOADING',
+      showLoading: true,
+    });
+    return false;
+  }
 
-Router.onRouteChangeError = () => {
-  console.log('Error');
-  NProgress.done();
-};
+  handleHideLoading = () => {
+    console.log('handleHideLoading');
+    const { dispatch, showLoading } = this.props;
 
-export class Submenu extends Component {
+    dispatch({
+      type: 'UPDATE_LOADING',
+      showLoading: false,
+    });
+    return false;
+  }
+
   render() {
     return (
       <Menu
@@ -32,8 +39,8 @@ export class Submenu extends Component {
         >
         <Menu.Item name='user'>
           <Link key='user'
-            onClick={this.startLoading}
-            onStop={this.stopLoading}
+            onClick={this.handleShowLoading}
+            onStop={this.handleHideLoading}
             href="/profile"
             prefetch>
             <Icon name='user' size='large'/>
@@ -42,8 +49,8 @@ export class Submenu extends Component {
 
         <Menu.Item key='address' name='address card outline'>
           <Link
-            onClick={this.startLoading}
-            onStop={this.stopLoading}
+            onClick={this.handleShowLoading}
+            onStop={this.handleHideLoading}
             href="/address-list"
             prefetch>
             <Icon name='address card outline' size='large'/>
@@ -52,8 +59,6 @@ export class Submenu extends Component {
 
         <Menu.Item key='order-history' name='shopping basket'>
           <Link
-            onClick={this.startLoading}
-            onStop={this.stopLoading}
             href="/order-history"
             prefetch>
             <Icon name='shopping basket' size='large'/>
@@ -62,8 +67,8 @@ export class Submenu extends Component {
 
         <Menu.Item key='wishlist' name='heart'>
           <Link
-            onClick={this.startLoading}
-            onStop={this.stopLoading}
+            onClick={this.handleShowLoading}
+            onStop={this.handleHideLoading}
             href="/wishlist"
             prefetch>
             <Icon name='heart' size='large'/>
@@ -73,3 +78,15 @@ export class Submenu extends Component {
     );
   }
 }
+
+const mapStateToProps = (state) => {
+  console.log(`TOPO STATE: ${state}`);
+  const { showLoading } = state;
+  return {
+    showLoading,
+  }
+}
+
+const Connected = connect(mapStateToProps)(Submenu);
+
+export { Connected as Submenu};

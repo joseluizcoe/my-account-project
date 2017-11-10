@@ -1,4 +1,7 @@
 import { Component } from 'react';
+import withRedux from 'next-redux-wrapper';
+import store from '../redux/store';
+
 import Layout from '../layouts/default';
 import { Button, Image, Icon, Item, Label } from 'semantic-ui-react';
 import data from '../data/order-history';
@@ -6,11 +9,13 @@ import data from '../data/order-history';
 
 class OrderHistory extends Component {
 
-
   render() {
-    console.log(data);
     return(
-      <Layout iconName='shopping basket' title='Order History'>
+      <Layout
+        iconName='shopping basket'
+        title='Order History'
+        loading={this.props.showLoading}
+        >
         {data.orders.map(
           order =>
             <Item.Group unstackable divided key={order.id}>
@@ -56,4 +61,13 @@ class OrderHistory extends Component {
   }
 }
 
-export default OrderHistory;
+const mapStateToProps = (state) => {
+  const { showLoading, activeLink, cartItems }  = state;
+  return {
+    showLoading,
+    activeLink,
+    cartItems
+  };
+}
+
+export default withRedux(store, mapStateToProps)(OrderHistory);

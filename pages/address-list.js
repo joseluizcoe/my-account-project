@@ -1,4 +1,7 @@
 import { Component } from 'react';
+import withRedux from 'next-redux-wrapper';
+import store from '../redux/store';
+
 import Layout from '../layouts/default';
 import { Icon, Item, Card, Button, Image } from 'semantic-ui-react';
 import data from '../data/address-list';
@@ -38,4 +41,13 @@ class AddressList extends Component {
   }
 }
 
-export default AddressList;
+const mapStateToProps = (state) => {
+  const { showLoading, activeLink, cartItems }  = state;
+  return {
+    showLoading,
+    activeLink,
+    cartItems
+  };
+}
+
+export default withRedux(store, mapStateToProps)(AddressList);

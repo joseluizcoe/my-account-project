@@ -1,4 +1,7 @@
 import { Component } from 'react';
+import withRedux from 'next-redux-wrapper';
+import store from '../redux/store';
+
 import Layout from '../layouts/default';
 import { Card, Icon, Image, Button } from 'semantic-ui-react';
 import data from '../data/profile';
@@ -34,4 +37,14 @@ class Profile extends Component {
   }
 }
 
-export default Profile;
+
+const mapStateToProps = (state) => {
+  const { loading, activeLink, cartItems }  = state;
+  return {
+    showLoading,
+    activeLink,
+    cartItems
+  };
+}
+
+export default withRedux(store, mapStateToProps)(Profile);
