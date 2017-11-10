@@ -2,7 +2,7 @@ import { Component } from 'react';
 import storeConnect from '../redux/container-connect';
 
 import Layout from '../layouts/default';
-import { Button, Image, Icon, Item, Label } from 'semantic-ui-react';
+import { Button, Image, Icon, Item, Label, List } from 'semantic-ui-react';
 import data from '../data/order-history';
 
 
@@ -31,27 +31,24 @@ class OrderHistory extends Component {
                     {order.status=='waiting' &&
                       <Icon name="calendar outline" />
                     }
-                    {order.date}
-                  </Item.Meta>
-                  <Item.Meta>Order Id: {order.id}</Item.Meta>
-                  <Item.Meta>Itens: {order.products.length}</Item.Meta>
-                  <Item.Meta>
-                    <Button color='teal'>Details</Button>
+                    {order.date} - Order Id: {order.id}</Item.Meta>
+                  <Item.Meta>Products ({order.products.length}):
+                  <List>
+                  {order.products.map( (product)=>
+                    <List.Item as='a'>
+                      <Icon name='right triangle' />
+                      <List.Content>
+                        <List.Header>{product.title}</List.Header>
+                        <List.Description>
+                          R$ {product.price}
+                        </List.Description>
+                      </List.Content>
+                    </List.Item>
+                    )}
+                  </List>
                   </Item.Meta>
                 </Item.Content>
               </Item>
-
-              { this.props.showDetails && order.products.map( (product)=>
-                <Item key={product.sku}>
-                  <Item.Content>
-                    <Item.Meta>{product.date}</Item.Meta>
-                    <Item.Header>{product.title}</Item.Header>
-                    <Item.Meta>
-                    <Button color='teal'>Details</Button>
-                    </Item.Meta>
-                  </Item.Content>
-                </Item>
-              )}
           </Item.Group>
         )
         }
