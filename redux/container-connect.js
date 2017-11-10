@@ -1,13 +1,5 @@
 import withRedux from 'next-redux-wrapper';
 import store from '../redux/store';
-
-const mapStateToProps = (state) => {
-  const { showLoading, activeLink, cartItems }  = state;
-  return {
-    showLoading,
-    activeLink,
-    cartItems,
-  };
-}
+import  mapStateToProps from './map-state-props';
 
 export default (Component) => withRedux(store, mapStateToProps)(Component);

@@ -1,7 +1,6 @@
 import { Component } from 'react';
-import { connect } from 'react-redux';
-
 import { Menu, Icon, Label, Transition } from 'semantic-ui-react';
+import componentConnect from '../../redux/component-connect';
 
 class Top extends Component {
   constructor({ children, actions, nav }) {
@@ -29,7 +28,7 @@ class Top extends Component {
                 circular
                 style={{
                   top: '.4em',
-                  left: '4.2em',
+                  left: '3.5em',
                 }}
                 >{cartItems}
               </Label>
@@ -40,13 +39,6 @@ class Top extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  const { cartItems } = state;
-  return {
-    cartItems,
-  }
-}
+const ConnectedTop = componentConnect(Top);
 
-const ConnectedTop = connect(mapStateToProps)(Top);
-
-export { ConnectedTop as Top};
+export { ConnectedTop as Top };
